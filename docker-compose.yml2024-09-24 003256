@@ -1,0 +1,25 @@
+version: "3.8"
+services: 
+  zookeeper: 
+    image: "bitnami/docker-zookeeper"
+    container_name: "docker-zookeeper-1"
+    ports: 
+     - "80:80"
+     - "2181:2181"
+    networks: 
+     - "docker-net"
+    environment: 
+     - "TZ=Asia/Seoul"
+     - "ZOOKEEPER_SERVER_ID=1"
+     - "ZOOKEEPER_CLIENT_PORT=2181"
+  kafka: 
+    image: "bitnami/kafka"
+    container_name: "docker-zookeeper-1"
+    ports: 
+     - "80:80"
+    networks: 
+     - "docker-net"
+    environment: 
+     - "TZ=Asia/Seoul"
+     - "ZOOKEEPER_SERVER_ID=1"
+     - "ZOOKEEPER_CLIENT_PORT=2181"

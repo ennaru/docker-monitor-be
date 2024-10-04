@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div id="docker-status">
+        <div id="daemon-status">
+            <div>Docker Status : Running <button>일시정지</button></div>
+        </div>
+        <div id="container-layout">
+            <div class="container-list layout-box">
+                <div class="title">Container 목록</div>
+                <div class="content"></div>
+            </div>
+            <div class="container-info layout-box">
+                <div class="title">Container 상세정보</div>
+                <div class="content"></div>
+            </div>
+        </div>
+    </div>
+    <div id="container-register">
+        <label>
+            <span class="title">Image</span>
+            <input type="text" placeholder="nginx:latest">
+        </label>
+        <label>
+            <span class="title">Name</span>
+            <input type="text">
+        </label>
+    </div>
+</main>
+<th:block layout:fragment="script">
+    <script src="/static/js/monitoring.js"></script>
+    <script>
+        var intervalCode = 0;
+        window.onload = function () {
+            let func = function() {
+                get("/status/all", containerListLoad, containerListFail)
+            };
+            intervalCode = setInterval(func, 5000);
+        }
+    </script>
+</th:block>
+</body>
+</html>

@@ -11,4 +11,14 @@ public class FrontController {
         return "index";
     }
 
+    @GetMapping("/popup")
+    public String popup() {
+        return "popup";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
 }

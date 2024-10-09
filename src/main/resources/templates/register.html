@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/default" lang="ko">
+<head>
+    <title>Monitoring</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div id="container-register">
+        <div class="title">Container 등록</div>
+
+        <div class="register-info">
+            <div class="layout-box">
+                <span class="title">Name</span>
+                <label>
+                    <input type="text" name="name" placeholder="docker-nginx">
+                </label>
+            </div>
+            <div class="layout-box">
+                <span class="title">Image</span>
+                <label>
+                    <input type="text" name="image" placeholder="nginx:latest">
+                </label>
+            </div>
+            <div class="layout-box">
+                <span class="title">Restart</span>
+                <label>
+                    <select name="restart">
+                        <option>no</option>
+                        <option>always</option>
+                        <option>unless-stopped</option>
+                    </select>
+                </label>
+            </div>
+            <div class="layout-box list-box" data-validator="port">
+                <span class="title">Ports</span>
+                <label>
+                    <input type="text" name="port" placeholder="nginx:latest">
+                </label>
+                <div class="list-area"></div>
+            </div>
+            <div class="layout-box list-box" data-validator="env">
+                <span class="title">Environments</span>
+                <label>
+                    <input type="text" name="environment" placeholder="TZ=Asia/Seoul">
+                </label>
+                <div class="list-area"></div>
+            </div>
+        </div>
+        <div class="bottom-box">
+            <button>등록하기</button>
+        </div>
+    </div>
+</main>
+<th:block layout:fragment="script">
+    <script src="/static/js/register.js"></script>
+
+</th:block>
+</body>
+</html>

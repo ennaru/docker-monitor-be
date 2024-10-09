@@ -13,11 +13,11 @@ function get(uri, callback, fallback) {
                 }
             }
         },
-        failure: function (xhr, status, error) {
+        error: function (xhr, status, error) {
             fallback(error);
         }
-
     });
+
 }
 function post(uri, data, callback, fallback) {
     $.ajax({
@@ -35,7 +35,7 @@ function post(uri, data, callback, fallback) {
                 }
             }
         },
-        failure: function (xhr, status, error) {
+        error: function (xhr, status, error) {
             fallback(error);
         }
     });
@@ -54,4 +54,7 @@ function getDateTime(dateString) {
         String(date.getHours()).padStart(2, '0') + ':' +
         String(date.getMinutes()).padStart(2, '0') + ':' +
         String(date.getSeconds()).padStart(2, '0');
+}
+function initialize() {
+
 }

@@ -15,7 +15,7 @@
     }
 }
 
-body, button, input[type=submit] {
+body, button, input[type=submit], input, textarea, select {
     margin: 0;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
@@ -26,15 +26,19 @@ body, button, input[type=submit] {
 
 button, input[type=submit] {
     -webkit-appearance: button;
+    padding: 0.6em 1em;
     border: 1px solid var(--main-text-color);
-    border-radius: 0.25em;
+    font-size: 0.9em;
+    border-radius: 0.5em;
     cursor: pointer;
 }
 
 input, textarea, select {
     -webkit-appearance: textfield;
+    padding: 0.4em;
     border: 1px solid var(--main-text-color);
-    border-radius: 0.25em;
+    font-size: 0.9em;
+    border-radius: 0.4em;
     outline: none;
 }
 
@@ -55,7 +59,7 @@ main {
 
 }
 .layout-box {
-    padding: 0.5em;
+    padding: 0.3em;
 }
 .title {
     padding: 0.4em;
@@ -134,4 +138,51 @@ main {
 }
 .infos .divider {
     color: #8ec7d1;
+}
+/******************************************************/
+.register-info .title {
+    display: inline-block;
+    width: 160px;
+    max-width: 160px;
+}
+.register-info .list-area {
+    padding: 0.5em;
+}
+.register-info .list-area span {
+    margin-right: 0.2em;
+    padding: 0.1em 0.3em;
+    background-color: var(--main-selected-bg-color);
+    border-radius: 0.5em;
+}
+.register-info .list-area span.close:after {
+    content: 'X';
+    margin-left: 0.4em;
+    cursor: pointer;
+}
+/******************************************************/
+.popup-dimmed {
+    background-color: #fff;
+    opacity: 0.3;
+}
+.popup {
+    margin: 0 auto;
+    padding: 2em;
+    width: 400px;
+    border-radius: 0.4em;
+}
+.popup .button-area {
+    text-align: right;
+}
+.popup button {
+    margin: 0.4em;
+    padding: 0.6em 1.2em;
+    border: none;
+    font-weight: bold;
+}
+.popup button.confirm {
+    background-color: #348ceb;
+    color: white;
+}
+.popup button.cancel {
+
 }
